@@ -4,6 +4,8 @@ import { BrowserRouter as Router,Routes,Route, BrowserRouter } from 'react-route
 import Home from './pages/Home'
 import Login from './Components/Login'
 import Signup from './Components/Signup'
+import CompanyLogin from './Components/CompanyLogin'
+import CompanySignup from './Components/CompanySignup'
 
 
 
@@ -15,6 +17,8 @@ function App() {
       <Route path="/" element={<Home/>}/>
       <Route path="/login" element={<Login/>}/>
       <Route path="/signup" element={<Signup/>}/>
+      <Route path='/companylogin' element={<CompanyLogin/>}/>
+      <Route path='/companysignup' element={<CompanySignup/>}/>
 
     </Routes>
     </BrowserRouter>

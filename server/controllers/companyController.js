@@ -27,6 +27,7 @@ const loginCompany = async (req, res) => {
 
 const registerCompany = async (req, res) => {
   const { companyName, companyEmail, password } = req.body;
+  console.log(req.body);
   const companyExists = await Company.findOne({ $or: [{ companyEmail }, { companyName }] });
   if (companyExists) {
     res.status(404).json({ messsage: "Company Name or Email Already Exist" });
