@@ -4,7 +4,10 @@ import { BrowserRouter as Router,Routes,Route, BrowserRouter } from 'react-route
 import Home from './pages/Home'
 import Login from './Components/Login'
 import Signup from './Components/Signup'
+import CompanyLogin from './Components/CompanyLogin'
+import CompanySignup from './Components/CompanySignup'
 import NFTmint from './pages/NFTmint'
+import SalarySlip from './pages/SalarySlip'
 
 
 
@@ -16,7 +19,11 @@ function App() {
       <Route path="/" element={<Home/>}/>
       <Route path="/login" element={<Login/>}/>
       <Route path="/signup" element={<Signup/>}/>
+      <Route path='/companylogin' element={<CompanyLogin/>}/>
+      <Route path='/companysignup' element={<CompanySignup/>}/>
       <Route path='/nftmint' element={<NFTmint/>}/>
+      <Route path='/salaryslip' element={<SalarySlip/>}/>
+
     </Routes>
     </BrowserRouter>
     

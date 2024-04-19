@@ -1,33 +1,37 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import axios from "axios";
-import { useState } from "react";
+import React from 'react'
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import axios from 'axios'
 
-export default function Login() {
-  const [userName, setUserName] = useState("");
-  const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false); // State to track loading
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    try {
-      const res = await axios.post("http://localhost:8000/users/login", {
-        userName,
-        password,
-      });
-      localStorage.setItem("userId", res.data.user._id);
-      localStorage.setItem("token", res.data.token);
 
-      setTimeout(() => {
-        window.location.href = "/";
-      }, 1000);
-    } catch (error) {
-      console.error("Error occurred:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
 
+export default function CompanySignup() {
+    const [companyName, setCompanyName] = useState('')
+    const [companyEmail, setCompanyEmail] = useState('')    
+    const [password, setPassword] = useState('')
+    const [loading, setLoading] = useState(false); // State to track loading    
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setLoading(true); // Set loading to true when submitting form
+        try {
+          const res = await axios.post(
+            "http://localhost:8000/company/registerCompany",
+            {
+                companyName,
+                companyEmail,
+              password
+            }
+          );
+          console.log(res);
+          window.location.href = "/companylogin";
+        } catch (error) {
+          console.error("Error occurred:", error);
+        } finally {
+          setLoading(false); // Reset loading regardless of success or error
+        }
+      };
+    
   return (
     <div className="">
       <section class="bg-gray-50 dark:bg-gray-900">
@@ -45,18 +49,38 @@ export default function Login() {
           </a>
           <div class="w-full  rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0  opacity-90">
             <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+                <Link to ='/signup'>
               <button className="p-2 border-2 text-white bg-black ml-4 mr-20">
                 For User
               </button>
+                </Link>
+                <Link to='/companysignup'>
               <button className="p-2 border-2 text-white bg-black ml-20">
                 For Company
               </button>
+                </Link>
               <h1 class="text-xl font-bold text-white text-center leading-tight tracking-tight  md:text-2xl">
-                User Login
+                User SignUp
               </h1>
-              <form class="space-y-4 md:space-y-6" onSubmit={handleSubmit} action="#">
+              <form
+                class="space-y-4 md:space-y-6"
+                onSubmit={handleSubmit}
+                action="#"
+              >
                 <div>
-                 
+                  <input
+                    type="text"
+                    name="username"
+                    id="username"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+                    placeholder="Username"
+                    required=""
+                    onChange={(e) => setCompanyName(e.target.value)}
+
+                  />
+                </div>
+                
+                <div>
                   <input
                     type="email"
                     name="email"
@@ -64,24 +88,20 @@ export default function Login() {
                     class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="Email"
                     required=""
-                    onChange={(e) => setUserName(e.target.value)}
+                    onChange={(e) => setCompanyEmail(e.target.value)}
+
                   />
                 </div>
                 <div>
-                  <label
-                    for="password"
-                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                  >
-                    Password
-                  </label>
                   <input
                     type="password"
                     name="password"
                     id="password"
-                    placeholder="Password"
                     class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Password"
                     required=""
                     onChange={(e) => setPassword(e.target.value)}
+
                   />
                 </div>
 
@@ -89,15 +109,15 @@ export default function Login() {
                   type="submit"
                   class="w-full border font-bold text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300  rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
                 >
-                  Login
+                  SignUp
                 </button>
                 <p class="text-sm font-light text-center text-gray-500 dark:text-gray-400">
-                  Don’t have an account yet?{" "}
+                  Have an account?{" "}
                   <Link
-                    to="/signup"
-                    class="font-medium text-primary-600 hover:underline dark:text-primary-500"
+                    to="/companylogin"
+                    class="  font-medium text-primary-600 hover:underline dark:text-primary-500"
                   >
-                    Sign up
+                    Login
                   </Link>
                 </p>
               </form>
@@ -106,5 +126,5 @@ export default function Login() {
         </div>
       </section>
     </div>
-  );
+  )
 }

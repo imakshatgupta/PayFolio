@@ -13,6 +13,7 @@ const generateToken = (user) => {
 
 const loginUser = async (req, res) => {
   const { userName, password } = req.body;
+  console.log(req.body);
   const user = await User.findOne({ userName });
   if (user && (await user.matchPassword(password))) {
     const token = generateToken(user);
@@ -61,29 +62,26 @@ const getUser = async (req, res) => {
 };
 
 const getSalarySlip = async (req, res) => {
-    try {
-        const nfts = await NFT.find({ display: true });
-        res.status(200).json(nfts);
-    } catch (error) {
-        res.status(500).json({ error: 'Internal server error' });
-    }
+  try {
+    const nfts = await NFT.find({ display: true });
+    res.status(200).json(nfts);
+  } catch (error) {
+    res.status(500).json({ error: "Internal server error" });
+  }
 };
 
 const displaySalarySlip = async (req, res) => {
-    try {
-        const { cid } = req.body;
-        const nft = await NFT.findOne({ cid });
-        if (nft) {
-            nft.display = true;
-            await nft.save();
-            res.status(200).json({ message: 'Salary Slip displayed successfully' });
-        } else {
-            res.status(404).json({ error: 'Salary Slip not found' });
-        }
-    } catch (error) {
-        res.status(500).json({ error: 'Internal server error' });
-    }
-}
+  try {
+    const nft = await NFT.findOne({ display: false });
+    nft.display = true;
+    await nft.save();
+    res.status(200).json(nft);
+  } catch (error) {
+    console.error("Error displaying salary slip:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+};
+
 
 
 module.exports = {
@@ -91,5 +89,5 @@ module.exports = {
   registerUser,
   getUser,
   getSalarySlip,
-    displaySalarySlip,
+  displaySalarySlip,
 };

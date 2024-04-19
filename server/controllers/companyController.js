@@ -12,8 +12,11 @@ const generateToken = (user) => {
 
 const loginCompany = async (req, res) => {
   const { companyName, password } = req.body;
+  console.log(req.body);
   const company = await Company.findOne({ companyName });
+  console.log(company);
   if (company && (await company.matchPassword(password))) {
+    console.log("helo",company);
     const token = generateToken(company);
     res.cookie("token", token);
     res.json({
