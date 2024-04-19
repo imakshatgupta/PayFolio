@@ -26,9 +26,7 @@ const loginUser = async (req, res) => {
 };
 
 const registerUser = async (req, res) => {
-  const { userName, fullName, email, password, phoneNo, pin } = req.body;
-  const amount = 10000;
-  const upiId = `${userName}@offpay`;
+  const { userName, fullName, email, password } = req.body;
   const userExists = await User.findOne({ $or: [{ email }, { userName }] });
   if (userExists) {
     res.status(404).json({ messsage: "Username or Email Already Exist" });
@@ -38,10 +36,6 @@ const registerUser = async (req, res) => {
       fullName,
       email,
       password,
-      phoneNo,
-      pin,
-      amount,
-      upiId,
     });
     if (user) {
       res.status(201).json({
