@@ -2,7 +2,46 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 
 const userSchema = mongoose.Schema({
-    
+    userName: {
+        type: String,
+        unique: true,
+    },
+    fullName: {
+        type: String,
+    },
+    email: {
+        type: String,
+    },
+    password: {
+        type: String,
+    },
+    salary: {
+        type: Number,
+    },
+    companyName: {
+        type: String,
+    },
+    loanAmount: {
+        type: Number,
+    },
+    nextSalaryDate: {
+        type: Date,
+    },
+    loanStatus: {
+        type: String,
+    },
+    nextSalaryAmount: {
+        type: Number,
+    },
+    loanStartDate: {
+        type: Date,
+    },
+    loanEndDate: {
+        type: Date,
+    },
+    loanInterest: {
+        type: Number,
+    },
 })
 
 
