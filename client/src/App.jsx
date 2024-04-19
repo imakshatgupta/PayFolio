@@ -4,6 +4,7 @@ import { BrowserRouter as Router,Routes,Route, BrowserRouter } from 'react-route
 import Home from './pages/Home'
 import Login from './Components/Login'
 import Signup from './Components/Signup'
+import NFTmint from './pages/NFTmint'
 
 
 
@@ -15,6 +16,7 @@ function App() {
       <Route path="/" element={<Home/>}/>
       <Route path="/login" element={<Login/>}/>
       <Route path="/signup" element={<Signup/>}/>
+      <Route path='/nftmint' element={<NFTmint/>}/>
 
     </Routes>
     </BrowserRouter>
