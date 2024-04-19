@@ -1,4 +1,5 @@
 const User = require("../models/userModel.js");
+const NFT = require("../models/nftModel.js");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
@@ -60,9 +61,15 @@ const getUser = async (req, res) => {
   }
 };
 
+const getSalarySlip = async (req, res) => {
+        const nfts = await NFT.find({});
+        res.status(200).json(nfts);
+};
+
 
 module.exports = {
   loginUser,
   registerUser,
   getUser,
+    getSalarySlip,
 };

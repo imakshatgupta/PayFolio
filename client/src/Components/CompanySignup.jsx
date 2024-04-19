@@ -16,7 +16,7 @@ export default function CompanySignup() {
         setLoading(true); // Set loading to true when submitting form
         try {
           const res = await axios.post(
-            "http://localhost:8000/users/registerCompany",
+            "http://localhost:8000/company/registerCompany",
             {
                 companyName,
                 companyEmail,
@@ -24,6 +24,7 @@ export default function CompanySignup() {
             }
           );
           console.log(res);
+          window.location.href = "/companylogin";
         } catch (error) {
           console.error("Error occurred:", error);
         } finally {
