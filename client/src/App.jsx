@@ -10,6 +10,7 @@ import NFTmint from './pages/NFTmint'
 import SalarySlip from './pages/SalarySlip'
 import CompanyHome from './pages/CompanyHome'
 import Loan from './pages/Loan'
+
 import PayrollPage from './pages/PayrollPage'
 
 
