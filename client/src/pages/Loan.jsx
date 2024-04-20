@@ -13,6 +13,7 @@ export default function Loan() {
   const [companyName, setCompanyName] = useState("");
   const [withdrawalAmount, setWithdrwalAmount] = useState(0);
   const [days, setDays] = useState("");
+  const [upiId, setUpiId] = useState("");
 
   const navigate = useNavigate();
 
@@ -67,8 +68,8 @@ export default function Loan() {
     }
     setTimeout(() => {
         setResultPopup(false);
-        navigate("/");
-    }, 1000);
+        
+    }, 3000);
 
     
   };
@@ -97,41 +98,61 @@ export default function Loan() {
     <div>
       <CompanyNavbar />
 
-      <div className="border mr-72 p-3 ml-96 mt-10 ">
-        <div className="text-center">
-          <h1 className="font-bold text-xl">Company Name: {companyName}</h1>
-        </div>
-        <div className="flex">
-          <h1 className="flex font-semibold mt-8">
-            UserName:<h1 className="ml-2">{userName}</h1>
-          </h1>
-          <h1 className=" flex font-semibold mt-8 ml-52">
-            Salary:<h1 className="ml-2">₹{salary}</h1>
-          </h1>
-        </div>
-        <div className="flex">
-          <h1 className="flex font-semibold mt-4">
-            Salary Date:<h1 className="ml-2">01/5/2024</h1>
-          </h1>
-          <h1 className=" flex font-semibold mt-4 ml-40">
-            Next Month Salary:<h1 className="ml-2">₹{nextMonthSalary}</h1>
-          </h1>
-        </div>
-        <button
-          className="mt-6 ml-40 bg-black text-white rounded-xl border p-2"
-          onClick={() => setShowPopup(true)}
-        >
-          Apply for Loan
-        </button>
-      </div>
-      <div></div>
+      <div className="border mr-72 p-3 ml-96 mt-10 bg-gray-100 rounded-xl shadow-lg">
+  <div className="text-center">
+    <h1 className="font-bold text-xl">Company Name: {companyName}</h1>
+  </div>
+  <div className="flex justify-between mt-4">
+    <div className="flex ">
+      <span className="font-semibold mt-1">UserName:</span>
+      <span className="mt-1 ">{userName}</span>
+    </div>
+    <div className="flex ">
+      <span className="font-semibold mt-1 mr-2">Salary:</span>
+      <span className="mt-1">₹{salary}</span>
+    </div>
+  </div>
+  <div className="flex justify-between mt-4">
+    <div className="flex ">
+      <span className="font-semibold mt-1">Salary Date:</span>
+      <span className="mt-1">01/5/2024</span>
+    </div>
+    <div className="flex ">
+      <span className="mt-1 font-semibold">Next Month Salary:</span>
+      <span className="mt-1">₹{nextMonthSalary}</span>
+    </div>
+  </div>
+  <button
+    className="mt-6 bg-blue-500 ml-56 hover:bg-blue-600 text-white rounded-lg py-2 px-4"
+    onClick={() => setShowPopup(true)}
+  >
+    Apply for Loan
+  </button>
+</div>
+
 
       {resultpopup && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-900 bg-opacity-50">
-          <div className="bg-white w-96 h-72 p-4 rounded-lg">
-            <h2 className="text-xl text-green  text-center font-bold mb-8 mt-10">Your Amount will be credited shortly...</h2>
+          <div className="bg-white  h-72 p-4 rounded-lg">
+            <h2 className="text-xl text-green  text-center font-bold mb-4 mt-10">Your Amount will be credited shortly...</h2>
             
+  <div className=" justify-between mt-2">
+  <div className="flex ">
+      <span className="font-bold mt-1 mb-3">Upi Id:</span>
+      <span className="mt-1 font-semibold ml-1">{upiId}</span>
+    </div>
+    <div className="flex ">
+      <span className="font-bold mt-1 mb-3">Interest Amount:</span>
+      <span className="mt-1 font-semibold ml-2">₹{interestAmount}</span>
+    </div>
+    <div className="flex ">
+      <span className="mt-1 font-bold ">Next Month Salary:</span>
+      <span className="mt-1 font-semibold">₹{nextMonthSalary}</span>
+    </div>
+  </div>
           </div>
+          
+
         </div>
       )}
 
@@ -235,6 +256,22 @@ export default function Loan() {
                   name="number"
                   value={nextMonthSalary}
                   placeholder="Enter Salary in Matic"
+                  className="border-gray-300 p-3 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border rounded-md"
+                />
+              </div>
+              <div className="mb-4">
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium text-gray-700"
+                >
+                  Next Month Salary
+                </label>
+                <input
+                  type="text"
+                  id="id"
+                  name="id"
+                  placeholder="Enter Your UPI ID"
+                  onChange={(e) => setUpiId(e.target.value)}
                   className="border-gray-300 p-3 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border rounded-md"
                 />
               </div>

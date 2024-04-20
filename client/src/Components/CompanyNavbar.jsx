@@ -8,7 +8,12 @@ export default function CompanyNavbar() {
   const [ employerUserName, setEmployerUserName] = useState("");
     const [employerAddress, setEmployerAddress] = useState("");
     const [employerSalary, setEmployerSalary] = useState("");
-    const user=localStorage.getItem("companyId");
+    const [company, setCompany] = useState({});
+
+    const handleLogout = () => {
+        localStorage.removeItem("companyId");
+        window.location.href = "/companylogin";
+        };
 
     useEffect(() => {
         getCompany();
@@ -24,6 +29,7 @@ export default function CompanyNavbar() {
           }
         );
         console.log(res.data.company);
+        setCompany(res.data.company);
       }
 
 
@@ -96,12 +102,19 @@ export default function CompanyNavbar() {
       )}
       <nav className="text-black">
         <div className="flex flex-wrap items-center justify-around p-4">
-        <Link to="/companyhome" class="flex items-center space-x-3 rtl:space-x-reverse">
-            <span class="self-center text-4xl font-semibold whitespace-nowrap dark:">
-              PayFolio
-            </span>
-          </Link>
+        <Link to="/companyhome" className="flex items-center space-x-3 rtl:space-x-reverse">
+  <img src="logo.jpg" alt="PayFolio Logo" className="h-8 w-8" />
+  <span className="self-center text-4xl font-semibold whitespace-nowrap dark:">
+    PayFolio
+  </span>
+</Link>
+
+
+          
+          
           <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+          {company.name ? (
+          <>
             <button
               onClick={() => setShowPopup(true)}
               type="button"
@@ -125,6 +138,22 @@ export default function CompanyNavbar() {
                 Signup
               </button>
             </Link>
+            </>
+            ) : (
+                <>
+                <h1 className="focus:ring-4 focus:outline-none font-medium rounded-lg text-2xl px-4 py-2 text-center">
+                  Hello
+                  <span className="font-bold ml-2 underline">
+                   { company.companyName}
+                  </span>
+                </h1>
+                <button onClick={handleLogout} className="focus:ring-4 focus:outline-none font-medium rounded-lg text-2xl px-4 py-2 text-center">
+                  Logout
+                </button>
+              </>
+            )}
+        
+            
             <button
               data-collapse-toggle="navbar-cta"
               type="button"
