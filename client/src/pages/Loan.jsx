@@ -66,10 +66,6 @@ export default function Loan() {
       alert("You can't withdraw more than your salary");
       return;
     }
-    setTimeout(() => {
-        setResultPopup(false);
-        
-    }, 3000);
 
     
   };
@@ -138,8 +134,12 @@ export default function Loan() {
             
   <div className=" justify-between mt-2">
   <div className="flex ">
-      <span className="font-bold mt-1 mb-3">Upi Id:</span>
+      <span className="font-bold mt-1 mb-3"> Wallet Address :</span>
       <span className="mt-1 font-semibold ml-1">{upiId}</span>
+    </div>
+    <div className="flex "> 
+      <span className="font-bold mt-1 mb-3">Withdrawal Amount:</span>
+      <span className="mt-1 font-semibold ml-2">₹{withdrawalAmount}</span>
     </div>
     <div className="flex ">
       <span className="font-bold mt-1 mb-3">Interest Amount:</span>
