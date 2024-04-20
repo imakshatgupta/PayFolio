@@ -73,6 +73,9 @@ const getSalarySlip = async (req, res) => {
 const displaySalarySlip = async (req, res) => {
   try {
     const nft = await NFT.findOne({ display: false });
+    if (!nft) {
+      return res.status(404).json({ error: "All latest Slips are generated" });
+    }
     nft.display = true;
     await nft.save();
     res.status(200).json(nft);
@@ -81,6 +84,7 @@ const displaySalarySlip = async (req, res) => {
     res.status(500).json({ error: "Internal server error" });
   }
 };
+
 
 
 
