@@ -3,7 +3,7 @@ import React from "react";
 export default function Navbar() {
   return (
     <div>
-      <nav class=" text-black border border-gray-200">
+      <nav class=" text-black">
         <div class="flex flex-wrap items-center justify-around p-4">
           <a href="" class="flex items-center space-x-3 rtl:space-x-reverse">
             <span class="self-center text-4xl font-semibold whitespace-nowrap dark:">

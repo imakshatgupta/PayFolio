@@ -7,23 +7,23 @@ const features = [
   {
     id: "feature-1",
     icon: star,
-    title: "Wide Selection of Cars",
+    title: "Salary Advance",
     content:
-      "Choose from a wide selection of vehicles, including sedans, SUVs, trucks, and more, for your rental needs.",
+      "Employees can request a portion of their next month's salary in advance as a loan, facilitating financial flexibility and planning.",
   },
   {
     id: "feature-2",
     icon: shield,
-    title: "Convenient Parking Options",
+    title: "Automated Disbursement",
     content:
-      "Access convenient parking options near your destination, ensuring a hassle-free experience when you arrive.",
+      "Efficiently disburse salaries to employees on a predefined date using our automated system, ensuring timely and secure payments.",
   },
   {
     id: "feature-3",
     icon: send,
-    title: "Secure Payment Methods",
+    title: "NFT Salary Slips",
     content:
-      "Enjoy peace of mind with our secure payment methods, ensuring your transactions are safe and protected.",
+      "Salary slips are stored as non-fungible tokens (NFTs) on the blockchain, providing immutable records and enhanced security.",
   },
 ];
 
@@ -83,14 +83,12 @@ const Business = () => (
   <section
     id="features"
     className={`${layout.section} pl-[120px] m-[30px] text-black bg-white`}
-
   >
     <div className={layout.sectionInfo}>
-      <h2 className={styles.heading2}>Find Your Perfect Ride with Us</h2>
+      <h2 className={styles.heading2}>Empower Your Salary Management</h2>
       <p className={`${styles.paragraph} max-w-[470px] mt-5`}>
-        Discover a seamless car rental and parking experience with our platform.
-        Choose from a wide range of vehicles, find convenient parking spots, and
-        enjoy secure payment options.
+        Explore the features that make our platform ideal for decentralized salary management.
+        Provide salary advances, automate disbursements, and store salary slips securely as NFTs.
       </p>
       <Button styles={`mt-10`} />
     </div>
