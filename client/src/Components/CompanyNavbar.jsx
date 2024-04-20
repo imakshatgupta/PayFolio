@@ -8,6 +8,7 @@ export default function CompanyNavbar() {
   const [ employerUserName, setEmployerUserName] = useState("");
     const [employerAddress, setEmployerAddress] = useState("");
     const [employerSalary, setEmployerSalary] = useState("");
+    const user=localStorage.getItem("companyId");
 
     useEffect(() => {
         getCompany();
@@ -24,6 +25,7 @@ export default function CompanyNavbar() {
         );
         console.log(res.data.company);
       }
+
 
   const handleSubmit =async (e) => {
     e.preventDefault();
@@ -103,23 +105,23 @@ export default function CompanyNavbar() {
             <button
               onClick={() => setShowPopup(true)}
               type="button"
-              className="text-white focus:ring-4  font-medium rounded-lg text-sm px-4 py-2 text-center"
+              className="focus:ring-4  font-medium rounded-lg text-2xl px-4 py-2 text-center"
             >
               Add Employee
             </button>
             <Link to="/companylogin">
               <button
                 type="button"
-                className="text-white  focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-2 text-center "
-              >
+                class="  focus:ring-4 focus:outline-none font-medium rounded-lg text-2xl px-4 py-2 text-center"
+                >
                 Login
               </button>
             </Link>
             <Link to="/companysignup">
               <button
                 type="button"
-                className="text-white  focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-2 text-center"
-              >
+                class="  focus:ring-4 focus:outline-none font-medium rounded-lg text-2xl px-4 py-2 text-center"
+                >
                 Signup
               </button>
             </Link>

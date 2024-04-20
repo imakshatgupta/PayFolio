@@ -111,7 +111,7 @@ const SalarySlip = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
         {!loading && data.length > 0 ? (
           data.map((item, index) => (
-            <div key={index} className="bg-white shadow-lg rounded-lg overflow-hidden">
+            <div key={index} className="bg-white   shadow-lg rounded-lg overflow-hidden">
               <div className="img-ctr">
                 {item.cid && (
                   <a href={`https://${item.cid}.ipfs.dweb.link`} target="_blank" rel="noopener noreferrer">
