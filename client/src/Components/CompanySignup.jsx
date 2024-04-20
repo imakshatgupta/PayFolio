@@ -60,7 +60,7 @@ export default function CompanySignup() {
               </button>
                 </Link>
               <h1 class="text-xl font-bold text-white text-center leading-tight tracking-tight  md:text-2xl">
-                User SignUp
+                Company SignUp
               </h1>
               <form
                 class="space-y-4 md:space-y-6"

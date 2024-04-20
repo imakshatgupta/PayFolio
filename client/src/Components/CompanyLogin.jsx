@@ -58,7 +58,7 @@ export default function CompanyLogin() {
               For Company
             </button>
             <h1 class="text-xl font-bold text-white text-center leading-tight tracking-tight  md:text-2xl">
-              User Login
+              Company Login
             </h1>
             <form class="space-y-4 md:space-y-6" onSubmit={handleSubmit} action="#">
               <div>
