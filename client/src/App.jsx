@@ -8,9 +8,13 @@ import CompanyLogin from './Components/CompanyLogin'
 import CompanySignup from './Components/CompanySignup'
 import NFTmint from './pages/NFTmint'
 import SalarySlip from './pages/SalarySlip'
+<<<<<<< HEAD
 import CompanyHome from './pages/CompanyHome'
 import Loan from './pages/Loan'
 
+=======
+import PayrollPage from './pages/PayrollPage'
+>>>>>>> dd4e66c923b32c1f522493f31925f26ffbfb548b
 
 
 function App() {
@@ -25,8 +29,12 @@ function App() {
       <Route path='/companysignup' element={<CompanySignup/>}/>
       <Route path='/nftmint' element={<NFTmint/>}/>
       <Route path='/salaryslip' element={<SalarySlip/>}/>
+<<<<<<< HEAD
       <Route path='/companyhome' element={<CompanyHome/>}/>
       <Route path='/loan' element={<Loan/>}/>
+=======
+      <Route path='/payroll' element={<PayrollPage/>}/>
+>>>>>>> dd4e66c923b32c1f522493f31925f26ffbfb548b
 
     </Routes>
     </BrowserRouter>
