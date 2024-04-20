@@ -48,9 +48,12 @@ export default function Login() {
               <button className="p-2 border-2 text-white bg-black ml-4 mr-20">
                 For User
               </button>
+
+              <Link to ='/companylogin'>
               <button className="p-2 border-2 text-white bg-black ml-20">
                 For Company
               </button>
+              </Link>
               <h1 class="text-xl font-bold text-white text-center leading-tight tracking-tight  md:text-2xl">
                 User Login
               </h1>
@@ -58,11 +61,11 @@ export default function Login() {
                 <div>
                  
                   <input
-                    type="email"
-                    name="email"
-                    id="email"
+                    type="text"
+                    name="username"
+                    id="username"
                     class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Email"
+                    placeholder="Username"
                     required=""
                     onChange={(e) => setUserName(e.target.value)}
                   />

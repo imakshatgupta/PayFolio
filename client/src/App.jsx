@@ -8,6 +8,7 @@ import CompanyLogin from './Components/CompanyLogin'
 import CompanySignup from './Components/CompanySignup'
 import NFTmint from './pages/NFTmint'
 import SalarySlip from './pages/SalarySlip'
+import CompanyHome from './pages/CompanyHome'
 
 
 
@@ -23,6 +24,7 @@ function App() {
       <Route path='/companysignup' element={<CompanySignup/>}/>
       <Route path='/nftmint' element={<NFTmint/>}/>
       <Route path='/salaryslip' element={<SalarySlip/>}/>
+      <Route path='/companyhome' element={<CompanyHome/>}/>
 
     </Routes>
     </BrowserRouter>
