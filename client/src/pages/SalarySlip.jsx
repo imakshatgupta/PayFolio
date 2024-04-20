@@ -35,6 +35,7 @@ const SalarySlip = () => {
         headers: {
           "Content-Type": "application/json",
         },
+        body: JSON.stringify({ display: true }),
       });
       const displayData = await response.json();
       console.log("Display data:", displayData);

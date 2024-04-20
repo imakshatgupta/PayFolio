@@ -2,10 +2,13 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 
 const EmployerSchema = mongoose.Schema({
-    employerName: {
+    employerUserName: {
         type: String,
     },
     employerId: {
+        type: String,
+    },
+    employerAddress: {
         type: String,
     },
     employerSalary: {

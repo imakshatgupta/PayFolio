@@ -1,4 +1,5 @@
 const Company = require("../models/companyModel.js");
+const User = require("../models/userModel.js");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
@@ -61,9 +62,27 @@ const getCompany = async (req, res) => {
   }
 };
 
+const addEmployer = async (req, res) => {
+  const { employerUserName, employerSalary , employerAddress , companyId } = req.body;
+  const company = await Company.findOne({ _id: companyId });
+  const employer = await User.findOne({ userName : employerUserName });
+  if(employer){
+    employer.salary = employerSalary;
+    await employer.save();
+    }
+  if (company) {
+    company.employers.push({ employerUserName, employerSalary , employerAddress });
+    await company.save();
+    return res.status(200).send({ message: "Employee Added Successfully" });
+  } else {
+    return res.status(401).send({ error: "Company Not Found...!" });
+  }
+};
+
 
 module.exports = {
   loginCompany,
   registerCompany,
   getCompany,
+  addEmployer
 };

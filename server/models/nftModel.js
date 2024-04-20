@@ -6,5 +6,8 @@ const nftSchema = new mongoose.Schema({
     transaction : {
         type: String,
     },
+    display : {
+        type: Boolean,
+    },
 });
 module.exports = new mongoose.model("nft", nftSchema);
