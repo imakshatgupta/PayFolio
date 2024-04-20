@@ -3,7 +3,7 @@ import TransactionsABI from "./Transactions.json";
 const contractABI = TransactionsABI.abi;
 const web3 = new Web3(window.ethereum);
 
-const contractAddress = "0xF80cB51d9177C661c991E33456595A699772FbD5";
+const contractAddress = "0x24e098eF631eE4293AB262e918Bec89fa9Cd6217";
 
 const transactionsContract = new web3.eth.Contract(
   contractABI,
