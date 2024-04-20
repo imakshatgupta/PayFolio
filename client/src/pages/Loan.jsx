@@ -264,13 +264,13 @@ export default function Loan() {
                   htmlFor="name"
                   className="block text-sm font-medium text-gray-700"
                 >
-                  Next Month Salary
+                  Enter Wallet Address
                 </label>
                 <input
                   type="text"
                   id="id"
                   name="id"
-                  placeholder="Enter Your UPI ID"
+                  placeholder="Enter Your Wallet Address"
                   onChange={(e) => setUpiId(e.target.value)}
                   className="border-gray-300 p-3 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border rounded-md"
                 />
