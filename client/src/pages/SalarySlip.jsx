@@ -70,7 +70,7 @@ const SalarySlip = () => {
                 )}
               </div>
               <div className="px-6 py-4">
-                <div className="font-bold text-xl mb-2">Transaction Details</div>
+                <div className="font-bold text-xl mb-2">{item.month}</div>
                 {item.transaction && (
                   <p className="text-gray-700 text-base">
                     <Link
