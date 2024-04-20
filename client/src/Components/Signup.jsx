@@ -50,9 +50,11 @@ export default function Signup() {
               <button className="p-2 border-2 text-white bg-black ml-4 mr-20">
                 For User
               </button>
+              <Link to ='/companysignup'>
               <button className="p-2 border-2 text-white bg-black ml-20">
                 For Company
               </button>
+              </Link>
               <h1 class="text-xl font-bold text-white text-center leading-tight tracking-tight  md:text-2xl">
                 User SignUp
               </h1>

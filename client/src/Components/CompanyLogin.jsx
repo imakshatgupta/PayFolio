@@ -20,10 +20,10 @@ export default function CompanyLogin() {
           });
           console.log(res.data)
           localStorage.setItem("companyId", res.data.company._id);
-          localStorage.setItem("token", res.data.token);
+          localStorage.setItem("companytoken", res.data.token);
     
           setTimeout(() => {
-            window.location.href = "/";
+            window.location.href = "/companyhome";
           }, 1000);
         } catch (error) {
           console.error("Error occurred:", error);
@@ -49,9 +49,11 @@ export default function CompanyLogin() {
         </a>
         <div class="w-full  rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0  opacity-90">
           <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+            <Link to ='/login'>
             <button className="p-2 border-2 text-white bg-black ml-4 mr-20">
               For User
             </button>
+            </Link>
             <button className="p-2 border-2 text-white bg-black ml-20">
               For Company
             </button>

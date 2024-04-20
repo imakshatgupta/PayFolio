@@ -13,7 +13,6 @@ const generateToken = (user) => {
 
 const loginUser = async (req, res) => {
   const { userName, password } = req.body;
-  console.log(req.body);
   const user = await User.findOne({ userName });
   if (user && (await user.matchPassword(password))) {
     const token = generateToken(user);

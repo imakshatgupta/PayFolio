@@ -1,7 +1,25 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { useEffect } from "react";
 
 export default function Navbar() {
+  useEffect(() => {
+    getUser();
+  }, []);
+
+  const getUser = async () => {
+    const res = await axios.get(
+      "http://localhost:8000/users/getUser",
+      {
+        headers: {
+          Authorization: `${localStorage.getItem("userId")}`,
+        },
+      }
+    );
+    console.log(res.data.user);
+    
+  };
   return (
     <div>
       <nav class=" text-black">
