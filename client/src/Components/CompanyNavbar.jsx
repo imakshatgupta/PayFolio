@@ -103,7 +103,7 @@ export default function CompanyNavbar() {
       <nav className="text-black">
         <div className="flex flex-wrap items-center justify-around p-4">
         <Link to="/companyhome" className="flex items-center space-x-3 rtl:space-x-reverse">
-  <img src="logo.jpg" alt="PayFolio Logo" className="h-8 w-8" />
+  <img src="payfolio.png" alt="PayFolio Logo" className="h-20 w-20" />
   <span className="self-center text-4xl font-semibold whitespace-nowrap dark:">
     PayFolio
   </span>
