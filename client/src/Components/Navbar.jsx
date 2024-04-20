@@ -1,15 +1,16 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   return (
     <div>
       <nav class=" text-black">
         <div class="flex flex-wrap items-center justify-around p-4">
-          <a href="" class="flex items-center space-x-3 rtl:space-x-reverse">
+          <Link to="/" class="flex items-center space-x-3 rtl:space-x-reverse">
             <span class="self-center text-4xl font-semibold whitespace-nowrap dark:">
               PayFolio
             </span>
-          </a>
+          </Link>
           <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
             <button
               type="button"
@@ -17,18 +18,16 @@ export default function Navbar() {
             >
               Get started
             </button>
-            <button
-              type="button"
+            <Link to={"/login"}
               class="  focus:ring-4 focus:outline-none font-medium rounded-lg text-2xl px-4 py-2 text-center "
             >
               Login
-            </button>
-            <button
-              type="button"
+            </Link>
+            <Link to={"/signup"}
               class="  focus:ring-4 focus:outline-none font-medium rounded-lg text-2xl px-4 py-2 text-center"
             >
               Signup
-            </button>
+            </Link>
             <button
               data-collapse-toggle="navbar-cta"
               type="button"
