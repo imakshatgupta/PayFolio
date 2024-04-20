@@ -1,7 +1,26 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
+import { useEffect } from 'react'
+
 
 export default function Navbar() {
+  useEffect(() => {
+    getUser();
+  }, []);
+
+  const getUser = async () => {
+    const res = await axios.get(
+      "http://localhost:8000/users/getUser",
+      {
+        headers: {
+          Authorization: `${localStorage.getItem("userId")}`,
+        },
+      }
+    );
+    console.log(res.data.user);
+    
+  };
   return (
     <div>
        
@@ -13,8 +32,9 @@ export default function Navbar() {
       <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">PayFolio</span>
   </a>
   <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-  <button type="button" class="text-white focus:ring-4  font-medium rounded-lg text-sm px-4 py-2 text-center">Get started</button>
-
+    <Link to ='/loan'>
+  <button type="button" class="text-white focus:ring-4  font-medium rounded-lg text-sm px-4 py-2 text-center">Take Loan</button>
+  </Link>
   <Link to ='/login'>
   <button type="button" class="text-white  focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-2 text-center ">Login</button>
     </Link>

@@ -20,10 +20,10 @@ export default function CompanyLogin() {
           });
           console.log(res.data)
           localStorage.setItem("companyId", res.data.company._id);
-          localStorage.setItem("token", res.data.token);
+          localStorage.setItem("companytoken", res.data.token);
     
           setTimeout(() => {
-            window.location.href = "/";
+            window.location.href = "/companyhome";
           }, 1000);
         } catch (error) {
           console.error("Error occurred:", error);

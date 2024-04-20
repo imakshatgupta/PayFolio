@@ -1,14 +1,44 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { useEffect } from "react";
 
 export default function CompanyNavbar() {
   const [showPopup, setShowPopup] = useState(false);
-  const [name, setName] = useState("");
-    const [walletAddress, setWalletAddress] = useState("");
-    const [salary, setSalary] = useState("");
+  const [ employerUserName, setEmployerUserName] = useState("");
+    const [employerAddress, setEmployerAddress] = useState("");
+    const [employerSalary, setEmployerSalary] = useState("");
 
-  const handleSubmit = () => {
-    console.log(name, walletAddress, salary);
+    useEffect(() => {
+        getCompany();
+      }, []);
+
+      const getCompany = async () => {
+        const res = await axios.get(
+          "http://localhost:8000/company/getCompany",
+          {
+            headers: {
+              Authorization: `${localStorage.getItem("companyId")}`,
+            },
+          }
+        );
+        console.log(res.data.company);
+      }
+
+  const handleSubmit =async (e) => {
+    e.preventDefault();
+    try {
+     const res= await axios.post("http://localhost:8000/company/addEmployer", {
+        employerUserName,
+        employerAddress,
+        employerSalary,
+        companyId: localStorage.getItem("companyId"),
+      });
+      console.log(res.data)
+    } catch (error) {
+        console.error("Error occurred:", error);
+    }
+    
     setShowPopup(false);
   };
 
@@ -26,7 +56,7 @@ export default function CompanyNavbar() {
                   name="name"
                   placeholder="Enter Employee Name"
                   className="border-gray-300 mt-1 p-3 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border rounded-md"
-                onChange={(e) => setName(e.target.value)}
+                onChange={(e) => setEmployerUserName(e.target.value)}
                 />
               </div>
               <div className="mb-4">
@@ -37,7 +67,7 @@ export default function CompanyNavbar() {
                   name="address"
                   placeholder="Enter Wallet Address"
                   className="border-gray-300 p-3 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border rounded-md"
-                onChange={(e) => setWalletAddress(e.target.value)}
+                onChange={(e) => setEmployerAddress(e.target.value)}
                 />
               </div>
               <div className="mb-4">
@@ -47,7 +77,7 @@ export default function CompanyNavbar() {
                   name="number"
                   placeholder="Enter Salary in Matic"
                   className="border-gray-300 p-3 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border rounded-md"
-                onChange={(e) => setSalary(e.target.value)}
+                onChange={(e) => setEmployerSalary(e.target.value)}
                 />
               </div>
               <div className="flex justify-center">
