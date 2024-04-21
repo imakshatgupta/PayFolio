@@ -65,6 +65,9 @@ export default function Navbar() {
                    { user.userName}
                   </span>
                 </h1>
+                <Link to='/salaryslip' className="focus:ring-4 focus:outline-none font-medium rounded-lg text-2xl px-4 py-2 text-center">
+                  Salary Slip
+                </Link>
                 <button onClick={handleLogout} className="focus:ring-4 focus:outline-none font-medium rounded-lg text-2xl px-4 py-2 text-center">
                   Logout
                 </button>
